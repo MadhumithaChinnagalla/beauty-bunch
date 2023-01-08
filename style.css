@@ -6,6 +6,7 @@
     text-decoration: none;
 }
 
+
 header{
     padding: 24px 24px;
     display: flex;
@@ -17,9 +18,13 @@ header{
    top:0; left: 0; right: 0;
    align-items: center;
    justify-content: space-between;
-   z-index: 5;
+   
 }
-
+header .logo{
+    width: 128px;
+    height: 118px; ;
+    border-radius: 60%;
+}
 nav{
     text-align: center;
     float: right;
@@ -27,16 +32,13 @@ nav{
 nav ul{
     display: inline-block;
     list-style-type: none;
-    z-index: 5;
 }
 nav ul li{
     display: inline-block;
     margin-right: 20px;
-    position: relative !important;
+    position: relative;
     float: left;
-    z-index: 5;
-    
-    
+   /* z-index: 5;*/
 }
 nav ul li a{
     font-size: 20px;
@@ -44,7 +46,6 @@ nav ul li a{
     color: black;
     display: block;
   text-align: center;
-  z-index: 5;
 }
 nav ul li a:hover{
     background:linear-gradient(to right, #BB73E0, #FF8DDB);/*plum*/;
@@ -54,17 +55,15 @@ nav ul li ul{
    position: absolute;
     left: 0;
     width: 200px;
-    background:linear-gradient(to right,#F9A3CA, #FFE3F3);;
+    background:linear-gradient(to right,#F9A3CA, #FFE3F3);
     display: none;
     padding-left:0px ;
-    z-index: 5;
-    
+  z-index: 5;
 }
 nav ul li ul li{
     width: 100%;
     border-top:1px solid rgba(0,0,0,0.1);
-    z-index: 5;
-
+  z-index: 5;
 }
 nav ul li:focus-within > ul, nav ul li:hover > ul{
     display: initial;
@@ -79,11 +78,11 @@ header label{
     cursor:pointer;
     display:none;
 }
-* a{
+a{
     text-decoration: none;
-    color:black;
+    color:#080808;
+    
 }
-
 /*catogries slide*/
 .carousel slide{
     max-height: 35%;
@@ -93,10 +92,10 @@ header label{
     overflow:visible;
 }*/
 
-#head{
+/*#head{
     padding-bottom: 24px;
     text-align: center;
-}
+}*/
 .img{
     max-height: 10%;
     width: 0%;
@@ -109,12 +108,13 @@ header label{
     text-decoration: none;
     padding-top: 0cm;
 }
-.cards{
+.cards-categories{
     max-height: 20%;
     padding: 54px 26px 54px 54px ;
     margin:0cm;
     display: flex;
 }
+
  /* featured cards start*/
 .small-container {
     max-width: 1080px;
@@ -122,6 +122,8 @@ header label{
     padding-left: 40px;
     padding-right: 40px;
     margin-bottom: 50px;
+   /* margin-left: 100px;
+   margin-right:100px ;*/
     
 }
 .rating {
@@ -133,7 +135,56 @@ header label{
     padding: 10px 40px;
     min-width: 200px;
     margin-bottom: 50px;
+    transition: transform 0.5s;
     
+  /*border: 1px solid rgb(106, 104, 104);
+ /* margin-right: 5px;*/
+    
+}
+#featured-cards:hover{
+    transform:translate(-5px);
+}
+
+#featured-cards img{
+   width:100%
+}
+.featured-img{
+    width: auto !important; 
+    height: 200px !important;
+}
+.box{
+    width:100%;
+    height: 100%;
+}
+.title{
+    text-align: center;
+    margin: 0 auto 80px;
+    position: relative;
+    line-height: 60px;
+}
+.title::after{
+    content: '';
+    background:#881361;
+    width:80px;
+    height:5px;
+    border-radius:5px;
+    position: absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+}
+.head{
+    color:rgb(70, 69, 69);
+    font-weight: normal;
+    height: 75px !important;
+    width: auto !important;
+   /* margin: 0px;
+    padding:0px:*/
+   /* font-family: 'Times New Roman', Times, serif;*/
+    padding-top: 5px;
+}
+.para{
+    font-size: 14px;
 }
 #featured-card a {  
     text-decoration: none;
@@ -163,6 +214,10 @@ header label{
     background-color: #555;
   }
   /* top botton end*/
+
+
+
+
   /*details*/
   #details{
     display: flex;
@@ -170,17 +225,72 @@ header label{
 }
 #rate{
     color: red;
+    font-size: 30px;
+   
 }
 #side-2{
     padding-top: 24px;
-}
+    
 
+}
+.row{
+    padding-left: 50px;
+    padding-bottom: 50px;
+    padding-top: 20px;
+}
+#side-1{
+    border:1px solid rgb(184, 183, 183);
+    padding: 20px 20px;
+    border-radius: 10px;
+  margin-top: 28px;
+  margin-bottom: 100px;
+  
+}
+.name{
+ 
+    padding-top: 20px;
+    padding-bottom:20px;
+}
+/*.rating{
+  
+    padding-top: 20px;
+    padding-bottom:20px;
+}*/
+.label{
+    
+    padding-top: 20px;
+    padding-bottom:20px;
+}
+.buy{
+    border:1px solid  rgb(214, 214, 214);
+    padding-top: 20px;
+    padding-bottom:20px;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    margin-right: 20px;
+     margin-left: 30px;
+     border-radius: 10px;
+}
+.row-1{
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border:1px solid rgb(214, 214, 214);
+    margin-bottom: 30px;
+    margin-right: 20px;
+     margin-left: 30px;
+     border-radius: 10px;
+    
+}
+.button{
+    padding-top: 20px;
+}
 /*footer*/
 footer
 {
     background-color: #282828;
     color:#aba8a8;
-    height:40vh;
+    height: 300px;;
 }
 
 .footer-widget
@@ -203,7 +313,7 @@ footer
 {
     line-height: 30px;
     margin:10px 0 30px 0;
-    width: 200px;
+    width: 300px;
 }
 .cards{
     padding: 0px;
@@ -225,6 +335,9 @@ footer
 {
     margin-left: 30px;
     
+}
+.informations-widget{
+    width: 250px;
 }
 
 .footer-widget ul
@@ -321,21 +434,25 @@ nav{
     background: #fff;
     border-top:1px solid rgba(0,0,0,0.1);
     display: none;
-
+    z-index: 5;
 }
 nav ul li{
     width:100% ;
+    z-index: 5;
 }
 nav ul li ul{
     position:relative;
     width: 100%;
+    z-index: 5;
 }
 nav ul li ul li{
     background:#eee;
+    z-index: 5;
 }
 nav ul li ul li ul{
     width: 100%;
     left:0;
+    z-index: 5;
 }
 #menu-bar:checked ~ nav{
     display:initial;
