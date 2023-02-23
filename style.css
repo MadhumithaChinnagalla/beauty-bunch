@@ -1,3 +1,5 @@
+
+
 * {
     margin: 0;
     padding: 0;
@@ -5,8 +7,6 @@
     font-family:sans-serif;
     text-decoration: none;
 }
-
-
 header{
     padding: 24px 24px;
     display: flex;
@@ -73,18 +73,66 @@ nav ul li:focus-within > ul, nav ul li:hover > ul{
     display:none;
     width:unset;
     height:unset;
+
 }
 header label{
     font-size: 20px;
     color:#333;
     cursor:pointer;
     display:none;
+    padding-right: 10px;
 }
 a{
     text-decoration: none;
     color:#080808;
     
 }
+.mobile-navbar-btn{
+    display: none;
+    background: transparent;
+    cursor: pointer;
+}
+.mobile-nav-icon{
+    padding-right: 2px;
+    width: 3rem;
+    height: 4rem;
+    color: black;
+}
+.mobile-nav-icon[name="close-outline"]{
+    display: none;
+}
+@media(max-width:62em){
+    .mobile-navbar-btn{
+        display: block;
+        z-index: 999;
+        border: 2px solid black;
+        color: black;
+        cursor: pointer;
+    }
+    header{
+        position: relative;
+        padding-right: 2px;
+    }
+    nav{
+       /*display: none;*/
+       width: 100%;
+       height: 100vh;
+       background: white;
+       position: absolute;
+       top: 0;
+       left: 0;
+       display: flex;
+       align-items: center;
+       justify-content: center; 
+
+    }
+    nav li{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
 /*catogries slide*/
 .carousel slide{
     max-height: 35%;
@@ -105,29 +153,31 @@ a{
 .img{
     max-height: 10%;
     width: 0%;
-    
     display: flex;
     
 }
 .text{
     text-align: center;
     text-decoration: none;
-    padding-top: 0cm;
+    padding-top: 2cm;
 }
 .cards-categories{
     max-height: 20%;
-    padding: 54px 26px 54px 54px ;
+    padding: 54px 26px 0px 26px ;
     margin:0cm;
     display: flex;
 }
 
 /* featured cards start*/
 .small-container{
-    padding-left: 50px;
+    padding-left: 26px;
     padding-right: 50px;
+    padding-top: 0px;
+    
 }
 .products{
-    padding-top:8.75rem;
+    padding-top:20px;
+    
 }
 
 .products a{
@@ -139,7 +189,9 @@ a{
     font-size: 1.125rem;
     color:black;
     transition:all 0.3s ease 0s;
+    
 }
+
 
 .product-list .product-name .amount{
     color:black;
@@ -152,17 +204,19 @@ a{
 
 #card {
     border: #585858;
-}
+}   
    
 .featured-img{
     height: 230px !important;
     width: auto;
-   
+    transition: 0.6s;
+}
+.product-image:hover{
+    transform: scale(1.5);
 }
 .product-image{
     text-align: center;
 }
-
 .title{
     text-align: center;
     margin: 0 auto 80px;
@@ -186,6 +240,10 @@ a{
   }
   .head{
     text-align: center;
+  }
+  .Addtocart{
+    text-align: center;
+    padding-bottom: 10px;
   }
 
 /*featured cards end*/
@@ -217,25 +275,38 @@ a{
 
 
   /*details*/
-  #details{
-    display: flex;
-    float: left;
+  
+.ratings{
+    text-align: left;
+    color: gold;
 }
+/*#side-1{
+    box-shadow: 0 1px 4px rgba(40, 37, 39, 0.769);
+} */
+
+
 #rate{
     color: red;
     font-size: 30px;
    
 }
-#side-2{
-    padding-top: 24px;
+.des{
+    padding-top: 10px;
+}
+.container{
+    padding: 0;
+    padding-left: 40px;
     
+}
+@media only screen
+and (min-device-width : 280px)
+and (max-device-width : 590px) {
+    #side-1{
+        padding-right: 80px;
+    }
 
 }
-.row{
-    padding-left: 50px;
-    padding-bottom: 50px;
-    padding-top: 20px;
-}
+
 /*#side-1{
     border:1px solid rgb(184, 183, 183);
     padding: 20px 20px;
@@ -251,6 +322,8 @@ a{
     width: 100%;
     margin-top: 28px;
     padding: 20px;
+    margin-right: 20px;
+    padding-right: 0;
 }
 .name{
  
@@ -264,7 +337,7 @@ a{
 }*/
 .label{
     
-    padding-top: 20px;
+    padding-top: 0;
     padding-bottom:20px;
 }
 .buy{
@@ -278,7 +351,7 @@ a{
      border-radius: 10px;
 }
 .row-1{
-    padding-top: 30px;
+    padding-top: 0;
     padding-left: 20px;
     padding-right: 20px;
     border:1px solid rgb(214, 214, 214);
@@ -296,7 +369,7 @@ footer
 {
     background-color: #282828;
     color:#aba8a8;
-    height: 300px;;
+    height: 100px;;
 }
 
 .footer-widget
@@ -422,6 +495,8 @@ margin: 10px 0;
 
 /* Contact CSS */
 .contact{
+    margin-top: 36px;
+    padding-top: 50px;
     padding:4rem 0;
     background-color:#f5f5f5;
 }
@@ -469,7 +544,7 @@ margin: 10px 0;
 @media(max-width:991px){
 
     header{
- padding:20px;
+ padding:0px;
     }
 header label{
     display:initial;
@@ -507,4 +582,13 @@ nav ul li ul li ul{
 #menu-bar:checked ~ nav{
     display:initial;
 }
+  }
+
+  .navbar-collapse {
+    display: flex !important; 
+    flex-basis: auto;
+  }
+
+  .navbar-toggler {
+    display: none;
   }
