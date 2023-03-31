@@ -38,17 +38,19 @@
 </header>
  <div class="hero">
          <div class="form-box">
-           <h1 class="title" style="margin-bottom: 25px;">Sing Up</h1>
+           <h1 class="title">Sing Up</h1>
         
           <form id="myForm"> 
             <label for="UserName"><b>UserName</b></label>
-            <input type="text" id="name" placeholder="Enter user_Name" name="user_Name" required>
+            <input type="text" id="UserName" placeholder="UserName" name="UserName" required>
             <label for="email"><b>Email</b></label>
-            <input type="text" id="email" placeholder="Enter Email" name="email" required>
+            <input type="text" id="Email" placeholder="Email" name="Email" required>
         
             <label for="psw"><b>Password</b></label>
-            <input type="password" id="password" placeholder="Enter Password" name="passwords" required>
-              <button type="submit" id="submit" value="Submit" class="signupbtn" >Sing Up</button>
+            <input type="password" id="Password" placeholder="Password" name="Password" required>
+            <button type="submit">Submit</button>
+
+            <!----  <button type="submit" id="submit" value="Submit" class="signupbtn" onclick="myFunction()">Submit</button>--->
          
           
           </form>
@@ -59,28 +61,81 @@
           </html>
               
               <script>
-             
-      function getData(form) {
-  var formData = new FormData(form);
+                const form = document.querySelector('#myForm');
 
-  for (var pair of formData.entries()) {
-    console.log(pair[0] + ": " + pair[1]);
-  }
+form.addEventListener('submit', (event) => {
+	event.preventDefault();
 
-  console.log(Object.fromEntries(formData));
-}
 
-document.getElementById("myForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-  getData(e.target);
+	const UserName = document.querySelector('#UserName').value;
+	const Email = document.querySelector('#Email').value;
+	const Password = document.querySelector('#Password').value;
+
+	const formData = {
+
+		UserName: UserName,
+		Email: Email,
+		Password: Password
+	};
+
+	const xhr = new XMLHttpRequest();
+	xhr.open('POST', '/api/lead');
+	xhr.setRequestHeader('Content-Type', 'application/json');
+
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === 4 && xhr.status === 200) {
+			alert('User added successfully');
+			form.reset();
+		} else if (xhr.readyState === 4 && xhr.status !== 200) {
+			alert('Error adding user');
+		}
+	};
+
+	xhr.send(JSON.stringify(formData));
 });
+
+
+
+              /*  const form = document.querySelector('#myForm');
+
+form.addEventListener('submit', (event) => {
+	event.preventDefault();
+
+	const name = document.querySelector('#name').value;
+	const email = document.querySelector('#email').value;
+	const password = document.querySelector('#password').value;
+
+	const formData = {
+		name: name,
+		email: email,
+		password: password
+	};*/
+
+	
+             /* function getData(form) {
+                var formData = new FormData(form);
+              
+                for (var pair of formData.entries()) {
+                  console.log(pair[0] + ": " + pair[1]);
+                }
+              
+                console.log(Object.fromEntries(formData));
+              }
+           
+              document.getElementById("myForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+                getData(e.target);
+        //        myFunction();
+              });
+              var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 
 var raw = JSON.stringify({
-  "password": "123456",
-  "email": "madhu@gmail.com",
-  "user_Name": "madhu"
+  "password": myform.getElementById("password"),
+  "email": myform.getElementById(email),
+  "user_Name": myform.getElementById(name)
 });
 
 var requestOptions = {
@@ -94,8 +149,42 @@ fetch("http://localhost:8081/api/lead", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
+*/
 
 
+
+/*
+function myFunction() {
+fetch("http://localhost:8081/api/lead", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((result) => {
+      setShow(data);
+      console.log("Hello at employee insert");
+    });
+}
+var raw = JSON.stringify({
+  "email": "madhu ",
+  "user_Name": " madhu@gmail.com",
+  "password": "123456 " 
+});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+let raw = (user_id,email,password);
+
+fetch("http://localhost:8081/api/lead", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));*/
 
               </script>
           

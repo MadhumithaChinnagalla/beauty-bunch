@@ -32,6 +32,8 @@ public class LeadController {
 	@CrossOrigin
 	@PostMapping(path = "/api/lead")
 	public ResponseEntity<Lead> saveLead(@RequestBody Lead lead) {
+		Lead savedLead = leadRepository.save(lead);
+
 		return new ResponseEntity<>(leadRepository.save(lead),HttpStatus.CREATED);
 	}
 	@GetMapping(path = "/api/leads")
